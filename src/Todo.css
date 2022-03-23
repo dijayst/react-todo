@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --background-color:white;
+    --text-color:gray;
+    --header-color:black;
+}
+
+.App{
+    background-color: var(--background-color);
+    height: 100%;
+    text-align: center;
+}
+.todo{
+    background-color: red;
+    border-bottom: red;
+    width: 40%;
+    
+    margin: 0% 0% 0% 30%;
+
+}
+.enterinput{
+    background-color: rgb(63, 7, 63);
+    height: 70%;
+    
+    
+}
+
+h1 {
+    color:var(--background-color);
+    margin: 0% 16% 0% 55%; 
+width: 200px;
+height: 40px; 
+    
+        }
+p{
+    color:var(--background-color);
+    margin: 6% 0% 0% 60%;  
+}
+   .input{
+       background-color: var(--background-color);
+       border-radius: 7px;
+       height: 25px;
+       width: 13rem;
+       margin: 0% 20% 0% 0%;
+    
+   
+   }   .btn{
+       background-color: rgb(97, 97, 173);
+   top: 50px;
+    
+    border-radius: 5px;
+   
+   }
+   .todooutput{
+       background-color: rgb(7, 63, 19);
+       
+      
+
+   }
