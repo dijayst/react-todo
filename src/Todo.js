@@ -5,13 +5,16 @@ const Todo = () => {
   //  const addtodo= [];
 
     const change=(e)=>{
-settodo(e.target.value);
+        let inpute={...todo}
+        inpute=e.target.value
+settodo(inpute);
 console.log(todo)
     }
 
     const handlesubmit=(e)=>{
     e.preventDefault()
-        console.log(todo)
+    
+        console.log({...todo})
     
     }
 
@@ -30,7 +33,7 @@ console.log(todo)
                 </form>
              </div> 
 <div className="todooutput">
-hehj
+{todo}
 </div>
         </div>
     )
