@@ -17,15 +17,12 @@
     background-color: red;
     border-bottom: red;
     width: 40%;
-    
+    height: 20%;
     margin: 0% 0% 0% 30%;
 
 }
 .enterinput{
-    background-color: rgb(63, 7, 63);
-    height: 70%;
-    
-    
+    background-color: rgb(63, 7, 63);  
 }
 
 h1 {
@@ -35,9 +32,16 @@ width: 200px;
 height: 40px; 
     
         }
+        .jk{
+            
+    color:var(--background-color);
+    margin: 10% 0% 0% 50%;  
+
+        }
 p{
     color:var(--background-color);
-    margin: 6% 0% 0% 60%;  
+    margin: 0% 0% 0% -90%;  
+
 }
    .input{
        background-color: var(--background-color);
@@ -55,8 +59,60 @@ p{
    
    }
    .todooutput{
-       background-color: rgb(7, 63, 19);
+       background-color:var(--background-color);
+       overflow: scroll;
        
+    
       
 
+   }
+.li{
+    background-color: brown;
+}
+
+.btn2{
+
+    margin: 0px -300px 0px 20px;
+}
+   @media(max-width:900px){
+       .App{
+           background-color: blue;
+           
+       }
+       
+.todo{
+    background-color: red;
+    border-bottom: red;
+    width: 40%;
+    
+    margin: 0% 0% 0% 30%;
+
+}
+
+.enterinput{
+    background-color: rgb(63, 7, 63);
+    height: 70%;
+
+    
+}
+
+
+.input{
+    background-color: var(--background-color);
+    border-radius: 7px;
+    height: 25px;
+    width: 11rem;
+    margin: 0% 20% 0% 0%;
+ 
+
+} 
+
+
+h1 {
+    color:var(--background-color);
+    margin: 0% 16% 0% 45%; 
+width: 200px;
+height: 40px; 
+    
+        }
    }

@@ -1,15 +1,27 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+
 
 const Todo = () => {
     const [input, setinput] = useState("")
     const [todo, settodo] = useState([]);
-    
+const [dele, setdele] = useState("");
+const [selete, setselete] = useState(false)
+const handleselect=()=>{
+    setselete(!selete)
+    console.log(selete)
+}
+
+const handledelete=()=>{
+
+    setdele(todo.pop())
+    console.log(dele)
+}
   //  const addtodo= [];
 
     const change=(e)=>{
        setinput(e.target.value)
     }
-
+ 
     const handlesubmit=(e)=>{
     e.preventDefault()
     settodo(todo=>[...todo,input])
@@ -19,6 +31,11 @@ const Todo = () => {
     
     }
 
+    if(selete=== true)
+    {
+        console.log("jfjfj")
+    console.log(handledelete)
+    }
     return (
         <div className="todo">
             <div className="enterinput">
@@ -26,23 +43,28 @@ const Todo = () => {
 <form onSubmit={handlesubmit}>         
            <h1>React Todo App</h1>
                 <br/>
-          <p >Add a new todo</p>
+          <p className="jk">Add a new todo</p>
           <br/>
           <input type="text" className="input"  placeholder="write here..." value={input} onChange={change}/>
                 
                 <button className="btn" type="submit">Add Todo</button>
                 </form>
              </div> 
-<div className="todooutput">
+             
+<ul className="todooutput">
+    
 {todo.map((item)=>{
     return(
-        <div key={item}>
+        <li key={item} className="li">
    <p>{item}</p>
-        </div>
+   <button className="btn1" onClick={handleselect} style={{color:selete? "yellow":"blue"} }>select</button>
+   <button className="btn2" onClick={handledelete}>delete</button>
+   </li>
+
     )
 })}
 
-</div>
+</ul>
         </div>
     )
 }
