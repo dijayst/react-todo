@@ -15,7 +15,6 @@
 }
 .todo{
     background-color: red;
-    border-bottom: red;
     width: 40%;
     height: 20%;
     margin: 0% 0% 0% 30%;
@@ -60,20 +59,103 @@ p{
    }
    .todooutput{
        background-color:var(--background-color);
-       overflow: scroll;
+       overflow-y: scroll;
        
-    
-      
-
    }
+
 .li{
-    background-color: brown;
+    background-color: #bab7b7;
 }
 
 .btn2{
 
     margin: 0px -300px 0px 20px;
 }
+.icon{
+    
+    margin: 0px 600px 0px 20px;
+}
+nav{
+    display: flex;
+    background-color: yellow;
+    
+    height: 40px;
+}
+
+.navul{
+    display: flex;
+    list-style: none;
+    background-color: blueviolet;
+    width:540px;
+    justify-content: space-between;
+}
+.liicon{
+    padding: 15px;
+}
+
+nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    
+  
+  }
+
+  nav-menu active {
+      display: flex;
+     background: #242222;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  height: 400px;
+  margin-top: -10%;
+  
+  }
+   
+  
+.nav-menu {
+    display: flex;
+    
+    width: 39.8%;
+    height: 90vh;
+    position: fixed;
+    top: 130px;
+    left: -150%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background-color: blueviolet;
+    text-decoration: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+   list-style-type: none;
+   justify-content: space-between;  
+    background: #242222;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  height: 50px;
+  margin: -10% 0% 0% 30%;
+  text-decoration: none;
+  
+  }
+  .nav-item{
+      border: 2px solid black;
+  height: 80px;
+  width: 80px;
+  
+  }
+
+
    @media(max-width:900px){
        .App{
            background-color: blue;
