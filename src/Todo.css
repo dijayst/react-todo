@@ -25,8 +25,9 @@
 }
 
 h1 {
+    background-color: greenyellow;
     color:var(--background-color);
-    margin: 0% 16% 0% 55%; 
+    margin: 0% 16% 0% 0%; 
 width: 200px;
 height: 40px; 
     
@@ -41,6 +42,11 @@ p{
     color:var(--background-color);
     margin: 0% 0% 0% -90%;  
 
+}
+.search{
+    width: 50%;
+    height: 20px;
+    border-radius: 5px;
 }
    .input{
        background-color: var(--background-color);
@@ -69,13 +75,26 @@ p{
 
 .btn2{
 
-    margin: 0px -300px 0px 20px;
+    margin: 0px 0px 0px 20px;
 }
 .icon{
-    
-    margin: 0px 600px 0px 20px;
+    display: flex;
+    list-style: none;
+    background-color: blueviolet;
+    width:540px;
+    justify-content: space-between;
+   
 }
-nav{
+
+.icon3{
+    
+    margin: 0px 600px 0px 30px;
+}
+.navbar{
+    display: flex;
+    background-color: red;
+}
+.nav{
     display: flex;
     background-color: yellow;
     
@@ -150,8 +169,8 @@ nav-menu {
   }
   .nav-item{
       border: 2px solid black;
-  height: 80px;
-  width: 80px;
+  height: 50px;
+  width: 50px;
   
   }
 

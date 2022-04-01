@@ -4,12 +4,13 @@ import React,{useState} from 'react';
 import BorderColor from '@material-ui/icons/BorderColor';
 import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import Delete from '@material-ui/icons/Delete';
-import {AcUnitOutlined} from '@material-ui/icons'
+import {AcUnitOutlined} from '@material-ui/icons';
+import Edit from "./Edit";
 
 const Todo = () => {
 const color={
-    red:{ background:"red"},
-    blue:{ background:"blue"},
+    red:{ background:"#69EBD0"},
+    blue:{ background:"#E0ACD5"},
     yellow:{ background:"yellow"},
     purple:{ background:"green"}
 }
@@ -37,6 +38,11 @@ const [menu, setmenu] = useState(false)
      console.log(menu)
  }
 
+ 
+    const change=(e)=>{
+       setinput(e.target.value)
+    console.log(input)}
+
  const handleselect=()=>{
     setselete(!selete)
     console.log(selete)
@@ -47,10 +53,7 @@ const handledelete=()=>{
     console.log(dele)
 }
  //  const addtodo= [];
-    const change=(e)=>{
-       setinput(e.target.value)
-    }
- 
+   
     const handlesubmit=(e)=>{
     e.preventDefault()
     settodo(todo=>[...todo,input])
@@ -69,28 +72,23 @@ const handledelete=()=>{
         <div className="todo" >
             
             <div className="enterinput" style={menured} >
-                  <nav className="navbar">
-                  <div className="icon">< MoreHoriz fontSize="large" onClick={handlemenu}/></div>
-<ul className={menu ? 'nav-menu active' : 'nav-menu'}>
-    <li style={menured} onClick={colorchange} className="nav-item active" >hello</li>
-    <li style={menupurple} className="nav-item active" ></li>
-    <li style={menublue} className="nav-item active"></li>
-    <li style={menuyellow} className="nav-item active"></li>
-
-
-</ul>
-                  </nav>
-                  
-<form onSubmit={handlesubmit}>         
-           <h1>React Todo App</h1>
-                <br/>
-          <p className="jk">Add a new todo</p>
-          <br/>
-          
-          <input type="text" className="input"  placeholder="write here..." value={input} onChange={change}/>
                 
+                
+                 
+
+
+                  <h1>React Todo App</h1>
+                <br/>
+      {/*    <p className="jk">Add a new todo</p>*/}
+          <br/>
+         
+                  <div><input type="text" className="search"placeholder="search"/></div>
+<form onSubmit={handlesubmit}>         
+            
+          <input type="text" className="input"  placeholder="write here..." value={input} onChange={change}/>
+          <button className="btn2" onClick={handledelete}>delete</button>
                 <button className="btn" type="submit">Add Todo</button>
-                </form>
+    </form>
              </div> 
              
 <ul className="todooutput">
@@ -100,8 +98,7 @@ const handledelete=()=>{
         <li key={item} className="li">
    <p>{item}</p>
    <button className="btn1" onClick={handleselect} style={{color:selete? "yellow":"blue"} }>select</button>
-   <button className="btn2" onClick={handledelete}>delete</button>
-   </li>
+      </li>
 
     )
 })}
@@ -121,6 +118,9 @@ const handledelete=()=>{
 
 </nav>
 
+<br/>
+<br/>
+<Edit name={input} data={handlesubmit} menu={menu} handlecolor={handlemenu} redcolor={menured} pup={menupurple} bluecolor={menublue} yellow={menuyellow} color={colorchange} submit={handlesubmit} change={change}/>
         </div>
     )
 }
