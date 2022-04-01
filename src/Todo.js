@@ -4,7 +4,7 @@ import React,{useState} from 'react';
 import BorderColor from '@material-ui/icons/BorderColor';
 import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import Delete from '@material-ui/icons/Delete';
-import {AcUnitOutlined} from '@material-ui/icons';
+import {AcUnitOutlined, Add} from '@material-ui/icons';
 import Edit from "./Edit";
 
 const Todo = () => {
@@ -18,6 +18,11 @@ const [menured, setmenured] = useState(color.red)
 const [menublue, setmenublue] = useState(color.blue)
 const [menuyellow, setMenuyellow] = useState(color.yellow)
 const [menupurple, setMenupurple] = useState(color.purple)
+const [edit, setedit] = useState(false)
+
+const handleedit=()=>{
+    setedit(!edit)
+}
 
 const colorchange=()=>{
     setmenured(color.blue);
@@ -73,7 +78,7 @@ const handledelete=()=>{
             
             <div className="enterinput" style={menured} >
                 
-                
+                <Add fontSize="large" onClick={handleedit}/>
                  
 
 
@@ -83,12 +88,6 @@ const handledelete=()=>{
           <br/>
          
                   <div><input type="text" className="search"placeholder="search"/></div>
-<form onSubmit={handlesubmit}>         
-            
-          <input type="text" className="input"  placeholder="write here..." value={input} onChange={change}/>
-          <button className="btn2" onClick={handledelete}>delete</button>
-                <button className="btn" type="submit">Add Todo</button>
-    </form>
              </div> 
              
 <ul className="todooutput">
@@ -120,8 +119,10 @@ const handledelete=()=>{
 
 <br/>
 <br/>
-<Edit name={input} data={handlesubmit} menu={menu} handlecolor={handlemenu} redcolor={menured} pup={menupurple} bluecolor={menublue} yellow={menuyellow} color={colorchange} submit={handlesubmit} change={change}/>
-        </div>
+<section>
+    {edit?<Edit name={input} data={handlesubmit} menu={menu} handlecolor={handlemenu} redcolor={menured} pup={menupurple} bluecolor={menublue} yellow={menuyellow} color={colorchange} submit={handlesubmit} change={change} handledelete={handledelete}/>:null}
+</section>
+ </div>
     )
 }
 

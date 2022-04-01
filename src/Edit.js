@@ -3,11 +3,14 @@ import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import { Card, CardContent, TextField } from '@material-ui/core';
 import {Add,Cancel} from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core';
+import Delete from '@material-ui/icons/Delete';
 
 
 const useStyles=makeStyles({
-   bgd:{
-      backgroundColor:"red",
+   card:{
+      height:"100%",
+      width:"70%",
+     margin:"0% 0% 0% 15%"
    }
 })
 const Edit = (props) => {
@@ -38,13 +41,9 @@ const classes =useStyles()
 
 
     return (
-        <div style={props.redcolor}>
+        <div >
               <div>
               <nav className="navbar">
-                  <div  className="icon">
-               < MoreHoriz  fontSize="large" onClick={props.handlecolor}/>
-                   
-                  </div>
 <ul className={props.menu ? 'nav-menu active' : 'nav-menu'}>
 <div className="icon1">< MoreHoriz fontSize="large" onClick={props.handlecolor}/></div>
     <li style={props.redcolor} onClick={props.color} className="nav-item active" >hello</li>
@@ -55,13 +54,13 @@ const classes =useStyles()
 
     
 </ul>
-
+<Delete onClick={props.handledelete} />
                   </nav>
                 
-                  <h1>React Todo App</h1>        { /*<div  className="icon"><Add/> < MoreHoriz  fontSize="large" onClick={handlemenu}/><Delete/></div>*/}
+               { /*<div  className="icon"><Add/> < MoreHoriz  fontSize="large" onClick={handlemenu}/><Delete/></div>*/}
 </div>
-                  <Card className={classes.bgd}>
-                 <Add fontSize="large" /> < MoreHoriz  fontSize="large" onClick={props.handlecolor}/><Cancel fontSize="large" onClick={props.submit}/>
+                  <Card className={classes.card} style={props.redcolor}>
+               <div className="carddiv">  <Add fontSize="large" /> < MoreHoriz  fontSize="large" onClick={props.handlecolor}/><Cancel fontSize="large" onClick={props.submit}/></div>
                      <CardContent>
                         <TextField placeholder="add a todo" multiline value={props.name} id="todo" onChange={props.change}/>
                     
