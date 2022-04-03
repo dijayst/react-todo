@@ -4,10 +4,16 @@ import React,{useState} from 'react';
 import BorderColor from '@material-ui/icons/BorderColor';
 import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import Delete from '@material-ui/icons/Delete';
-import {AcUnitOutlined, Add} from '@material-ui/icons';
+import {AcUnitOutlined, Add, Search} from '@material-ui/icons';
 import Edit from "./Edit";
-
+import { makeStyles } from '@material-ui/core';
+const usestyles=makeStyles({
+    add:{
+        float:"left"
+    }
+})
 const Todo = () => {
+    const classes=usestyles()
 const color={
     red:{ background:"#69EBD0"},
     blue:{ background:"#E0ACD5"},
@@ -26,8 +32,17 @@ const handleedit=()=>{
 
 const colorchange=()=>{
     setmenured(color.blue);
+}
+
+const colorchnge=()=>{
     setMenuyellow(color.brown);
+}
+
+const colorcange=()=>{
     setmenublue(color.rose)
+}
+
+const colorhange=()=>{
     setMenupurple(color.black)
 }
 
@@ -36,6 +51,17 @@ const [input, setinput] = useState("")
 const [dele, setdele] = useState("");
 const [selete, setselete] = useState(false)
 const [menu, setmenu] = useState(false)
+const [searc, setsearc] = useState("")
+ const handlesearch=(e)=>{
+   // let keyword=e.target.value
+    todo.filter((item)=>{
+        return(
+item.input.includes(searc)
+        )
+    })
+     setsearc(e.target.value)
+     console.log(searc)
+ }
 
 
  const handlemenu=()=>{
@@ -78,7 +104,8 @@ const handledelete=()=>{
             
             <div className="enterinput" style={menured} >
                 
-                <Add fontSize="large" onClick={handleedit}/>
+                <Add className={classes.add} fontSize="large" onClick={handleedit}/>
+                <Search fontSize="large"/>
                  
 
 
@@ -87,7 +114,9 @@ const handledelete=()=>{
       {/*    <p className="jk">Add a new todo</p>*/}
           <br/>
          
-                  <div><input type="text" className="search"placeholder="search"/></div>
+                  <div>
+                      <input type="text" className="search" value={searc} onChange={handlesearch} placeholder="search"/>
+                  </div>
              </div> 
              
 <ul className="todooutput">
