@@ -1,9 +1,10 @@
 import React from 'react'
 import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import { Card, CardContent, TextField } from '@material-ui/core';
-import {Add,Cancel} from '@material-ui/icons';
+import {Add} from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core';
-import Delete from '@material-ui/icons/Delete';
+import { useParams} from 'react-router';
+//import Delete from '@material-ui/icons/Delete';
 
 
 const useStyles=makeStyles({
@@ -15,7 +16,7 @@ const useStyles=makeStyles({
 })
 const Edit = (props) => {
 const classes =useStyles()
-
+let {item} = useParams();
 //const [input, setinput] = useState("")
    // const [todo, settodo] = useState([]);
    // const [menu, setmenu] = useState(false)
@@ -42,29 +43,13 @@ const classes =useStyles()
 
     return (
         <div >
-              <div>
-              <nav className="navbar">
-<ul className={props.menu ? 'nav-menu active' : 'nav-menu'}>
-<div className="icon1">< MoreHoriz fontSize="large" onClick={props.handlecolor}/></div>
-    <li style={props.redcolor} onClick={props.color} className="nav-item active" >hello</li>
-    <li style={props.pup} className="nav-item active" ></li>
-    <li style={props.bluecolor} className="nav-item active"></li>
-    <li style={props.yellow} className="nav-item active"></li>
-    
-
-    
-</ul>
-<Delete onClick={props.handledelete} />
-                  </nav>
-                
-               { /*<div  className="icon"><Add/> < MoreHoriz  fontSize="large" onClick={handlemenu}/><Delete/></div>*/}
-</div>
+           {item}
                   <Card className={classes.card} style={props.redcolor}>
-               <div className="carddiv">  <Add fontSize="large" /> < MoreHoriz  fontSize="large" onClick={props.handlecolor}/><Cancel fontSize="large" onClick={props.submit}/></div>
-                     <CardContent>
+               <div style={props.setgren} className="carddiv">   < MoreHoriz  fontSize="large" onClick={props.handlecolor}/><Add fontSize="medium" onClick={props.submit}/></div>
+                   <CardContent>
                         <TextField placeholder="add a todo" multiline value={props.name} id="todo" onChange={props.change}/>
                     
-                     </CardContent>
+                    </CardContent>
                   </Card>
              </div> 
              
@@ -87,3 +72,5 @@ export default Edit
           
                 <button className="btn" type="submit">Add Todo</button>
                 </form>*/
+
+

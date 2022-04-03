@@ -2,11 +2,13 @@ import React,{useState} from 'react';
 //import Typography from '@material-ui/core'
 //import {AccessAlarm} from '@material-ui/icons';
 import BorderColor from '@material-ui/icons/BorderColor';
-import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import Delete from '@material-ui/icons/Delete';
-import {AcUnitOutlined, Add, Search} from '@material-ui/icons';
+import { Add, Search,CancelRounded} from '@material-ui/icons';
 import Edit from "./Edit";
 import { makeStyles } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
+
+
 const usestyles=makeStyles({
     add:{
         float:"left"
@@ -14,36 +16,52 @@ const usestyles=makeStyles({
 })
 const Todo = () => {
     const classes=usestyles()
+
+    let history= useNavigate()
+    
 const color={
     red:{ background:"#69EBD0"},
     blue:{ background:"#E0ACD5"},
     yellow:{ background:"yellow"},
-    purple:{ background:"green"}
+    purple:{ background:"green"},
+    green:{ background:"red"},
+    lemon:{ background:"lemongreen"},
+    gray:{ background:"gray"},
+    pink:{ background:"pink"}
 }
 const [menured, setmenured] = useState(color.red)
 const [menublue, setmenublue] = useState(color.blue)
 const [menuyellow, setMenuyellow] = useState(color.yellow)
 const [menupurple, setMenupurple] = useState(color.purple)
-const [edit, setedit] = useState(false)
+const [green, setgreen] = useState(color.green)
+const [lemon, setlemon] = useState(color.lemon)
+const [gray, setgray] = useState(color.gray)
+const [menupink, setMenupink] = useState(color.pink)
 
+
+const [edit, setedit] = useState(false)
 const handleedit=()=>{
     setedit(!edit)
 }
 
 const colorchange=()=>{
     setmenured(color.blue);
+    setgreen(color.red)
 }
 
 const colorchnge=()=>{
     setMenuyellow(color.brown);
+    setlemon(color.lemon)
 }
 
 const colorcange=()=>{
-    setmenublue(color.rose)
+    setmenublue(color.rose);
+    setMenupink(color.pink)
 }
 
 const colorhange=()=>{
     setMenupurple(color.black)
+    setgray(color.gray)
 }
 
 const [input, setinput] = useState("")
@@ -53,12 +71,6 @@ const [selete, setselete] = useState(false)
 const [menu, setmenu] = useState(false)
 const [searc, setsearc] = useState("")
  const handlesearch=(e)=>{
-   // let keyword=e.target.value
-    todo.filter((item)=>{
-        return(
-item.input.includes(searc)
-        )
-    })
      setsearc(e.target.value)
      console.log(searc)
  }
@@ -79,7 +91,12 @@ item.input.includes(searc)
     console.log(selete)
 }
 
-const handledelete=()=>{
+const handledelete=(e)=>{
+//setdele.splice(e,1);
+//setdele(todo.splice(e,1))
+//settodo(todo.splice(index,1))
+
+    
     setdele(todo.pop())
     console.log(dele)
 }
@@ -102,10 +119,10 @@ const handledelete=()=>{
     return (
         <div className="todo" >
             
-            <div className="enterinput" style={menured} >
+            <div className="enterinput"  >
                 
-                <Add className={classes.add} fontSize="large" onClick={handleedit}/>
-                <Search fontSize="large"/>
+                <Add className={classes.add} fontSize="medium" onClick={handleedit}/>
+                
                  
 
 
@@ -116,24 +133,33 @@ const handledelete=()=>{
          
                   <div>
                       <input type="text" className="search" value={searc} onChange={handlesearch} placeholder="search"/>
+                      <Search fontSize="small"/>
                   </div>
              </div> 
              
 <ul className="todooutput">
     
-{todo.map((item)=>{
+{todo.filter((val)=>{
+    return(searc===""||val.toLowerCase().includes(searc.toLowerCase())
+    ?val:null)}).map((item)=>{
     return(
-        <li key={item} className="li">
+        <li key={item} className="li" onClick={()=>{history(`/edit/${item}`)}} >
    <p>{item}</p>
-   <button className="btn1" onClick={handleselect} style={{color:selete? "yellow":"blue"} }>select</button>
+   <BorderColor fontSize="small" onClick={handleselect}/>
+      {item?
+    <Delete fontSize="small" onClick={handledelete} /> 
+    :null}
+     
       </li>
+    
+      
 
     )
 })}
 
 </ul>
 
-
+{/*}
 <nav className="nav">
     <ul className="navul">  
       <li className="liicon">
@@ -145,11 +171,50 @@ const handledelete=()=>{
  </ul>
 
 </nav>
+*/}
 
 <br/>
-<br/>
+
 <section>
-    {edit?<Edit name={input} data={handlesubmit} menu={menu} handlecolor={handlemenu} redcolor={menured} pup={menupurple} bluecolor={menublue} yellow={menuyellow} color={colorchange} submit={handlesubmit} change={change} handledelete={handledelete}/>:null}
+    {edit?
+    <Edit name={input} 
+    colorhange={colorhange} 
+    colorcange={colorcange}
+     colorchnge={colorchnge}
+      data={handlesubmit}
+       menu={menu}
+        handlecolor={handlemenu}
+         redcolor={menured}
+          setgren={green}
+          pup={menupurple}
+           bluecolor={menublue}
+            yellow={menuyellow}
+             color={colorchange}
+              green={green}
+               lemon={lemon} 
+               gray={gray}
+                menupink={menupink}
+                 submit={handlesubmit} 
+                 change={change}
+                  handledelete={handledelete}/>:null}
+                  
+              <div>
+              <nav className="navbar">
+<ul className={menu ? 'nav-menu active' : 'nav-menu'}>
+<div className="icon1">
+   < CancelRounded fontSize="large" onClick={handlemenu}/></div>
+    <li style={menured}  onClick={colorchange} className="nav-item active" >hello</li>
+    <li style={menublue} onClick={colorcange} className="nav-item active" ></li>
+    <li style={menuyellow} onClick={colorchnge} className="nav-item active"></li>
+    <li style={menupink} onClick={colorhange} className="nav-item active"></li>
+    
+
+    
+</ul>
+                  </nav>
+                
+               { /*<div  className="icon"><Add/> < MoreHoriz  fontSize="large" onClick={handlemenu}/><Delete/></div>*/}
+</div>
 </section>
  </div>
     )

@@ -13,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Todo/>}/>
         <Route path="/edit" element={<Edit/>}/>
+        <Route path='/edit:item'exact element={<Edit/>}/>
+                   
       </Routes>
       </BrowserRouter>
        </div>

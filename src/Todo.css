@@ -21,18 +21,23 @@
   
 }
 .todo{
-    background-color: red;
+    background-color:var(--background-color);
+    color: black;
+    border:solid black;
     width: 40%;
     height: 20%;
     margin: 0% 0% 0% 30%;
 
 }
+.search{
+    background-color: grey;
+}
 .enterinput{
-    background-color: rgb(63, 7, 63);  
+    color: black;  
 }
 
 h1 {
-    color:var(--background-color);
+    color:black;
     margin: 0% 16% 0% 0%; 
 width: 200px;
 height: 40px; 
@@ -71,12 +76,14 @@ p{
    }
    .todooutput{
        background-color:var(--background-color);
-       overflow-y: scroll;
-       
+       list-style-type: none;
+       color: black;
    }
 
 .li{
     background-color: #bab7b7;
+    right: 50px;
+   
 }
 
 .btn2{
@@ -147,12 +154,10 @@ nav-menu {
   
 .nav-menu {
     display: flex;
-    
-    width: 39.8%;
-    height: 90vh;
-    position: fixed;
-    top: 130px;
-    left: -150%;
+    width: 0%;
+    height: 0vh;
+    top: 0px;
+    left: 0%;
     opacity: 1;
     transition: all 0.5s ease;
     background-color: blueviolet;
@@ -168,14 +173,15 @@ nav-menu {
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
-  height: 50px;
-  margin: -10% 0% 0% 30%;
+    width: 70%;
+  height: 39px;
+  margin: -26% 0% 0% 15%;
   text-decoration: none;
   
   }
   .nav-item{
       border: 2px solid black;
-  height: 50px;
+  height: 36px;
   width: 50px;
   
   }
@@ -197,7 +203,8 @@ nav-menu {
 }
 
 .enterinput{
-    background-color: rgb(63, 7, 63);
+    background-color: var(--background-color);
+    color: black;
     height: 70%;
 
     
