@@ -3,7 +3,7 @@ import MoreHoriz from '@material-ui/icons/MoreHoriz';
 import { Card, CardContent, TextField } from '@material-ui/core';
 import {Add} from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core';
-import { useParams} from 'react-router';
+
 //import Delete from '@material-ui/icons/Delete';
 
 
@@ -16,7 +16,6 @@ const useStyles=makeStyles({
 })
 const Edit = (props) => {
 const classes =useStyles()
-let {item} = useParams();
 //const [input, setinput] = useState("")
    // const [todo, settodo] = useState([]);
    // const [menu, setmenu] = useState(false)
@@ -43,12 +42,12 @@ let {item} = useParams();
 
     return (
         <div >
-           {item}
+           
                   <Card className={classes.card} style={props.redcolor}>
                <div style={props.setgren} className="carddiv">   < MoreHoriz  fontSize="large" onClick={props.handlecolor}/><Add fontSize="medium" onClick={props.submit}/></div>
                    <CardContent>
                         <TextField placeholder="add a todo" multiline value={props.name} id="todo" onChange={props.change}/>
-                    
+                  
                     </CardContent>
                   </Card>
              </div> 

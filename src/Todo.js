@@ -6,7 +6,6 @@ import Delete from '@material-ui/icons/Delete';
 import { Add, Search,CancelRounded} from '@material-ui/icons';
 import Edit from "./Edit";
 import { makeStyles } from '@material-ui/core';
-import { useNavigate } from 'react-router-dom';
 
 
 const usestyles=makeStyles({
@@ -17,7 +16,7 @@ const usestyles=makeStyles({
 const Todo = () => {
     const classes=usestyles()
 
-    let history= useNavigate()
+
     
 const color={
     red:{ background:"#69EBD0"},
@@ -47,16 +46,19 @@ const handleedit=()=>{
 const colorchange=()=>{
     setmenured(color.blue);
     setgreen(color.red)
+    console.log(menured)
 }
 
 const colorchnge=()=>{
     setMenuyellow(color.brown);
     setlemon(color.lemon)
+    console.log(menuyellow)
 }
 
 const colorcange=()=>{
     setmenublue(color.rose);
     setMenupink(color.pink)
+    console.log(menublue)
 }
 
 const colorhange=()=>{
@@ -110,12 +112,6 @@ const handledelete=(e)=>{
     console.log(todo)
     
     }
-
-    if(selete=== true)
-    {
-        console.log("jfjfj")
-    console.log(handledelete)
-    }
     return (
         <div className="todo" >
             
@@ -143,7 +139,7 @@ const handledelete=(e)=>{
     return(searc===""||val.toLowerCase().includes(searc.toLowerCase())
     ?val:null)}).map((item)=>{
     return(
-        <li key={item} className="li" onClick={()=>{history(`/edit/${item}`)}} >
+        <li key={item} className="li"  >
    <p>{item}</p>
    <BorderColor fontSize="small" onClick={handleselect}/>
       {item?
@@ -204,8 +200,8 @@ const handledelete=(e)=>{
 <div className="icon1">
    < CancelRounded fontSize="large" onClick={handlemenu}/></div>
     <li style={menured}  onClick={colorchange} className="nav-item active" >hello</li>
-    <li style={menublue} onClick={colorcange} className="nav-item active" ></li>
-    <li style={menuyellow} onClick={colorchnge} className="nav-item active"></li>
+    <li style={menublue} onClick={colorchnge} className="nav-item active" ></li>
+    <li style={menuyellow} onClick={colorcange} className="nav-item active"></li>
     <li style={menupink} onClick={colorhange} className="nav-item active"></li>
     
 
