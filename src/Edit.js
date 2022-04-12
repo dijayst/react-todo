@@ -43,7 +43,7 @@ const classes =useStyles()
     return (
         <div >
            
-                  <Card className={classes.card} style={props.redcolor}>
+                  <Card className={classes.card} style={props.redcolorprops.bluecolor,props.yellow,props.pup}>
                <div style={props.setgren} className="carddiv">   < MoreHoriz  fontSize="large" onClick={props.handlecolor}/><Add fontSize="medium" onClick={props.submit}/></div>
                    <CardContent>
                         <TextField placeholder="add a todo" multiline value={props.name} id="todo" onChange={props.change}/>
