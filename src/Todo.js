@@ -98,7 +98,7 @@ const handledelete=(e)=>{
 //setdele(todo.splice(e,1))
 //settodo(todo.splice(index,1))
 
-    
+    setdele((prevtodo)=>{prevtodo!=index})
     setdele(todo.pop())
     console.log(dele)
 }
