@@ -94,11 +94,10 @@ const [searc, setsearc] = useState("")
 }
 
 const handledelete=(e)=>{
-setdele.splice(e,1);
-setdele(todo.splice(e,1))
-settodo(todo.splice(index,1))
-
-    
+//setdele.splice(e,1);
+//setdele(todo.splice(e,1))
+//settodo(todo.splice(index,1))
+  
     setdele(todo.pop())
     console.log(dele)
 }
