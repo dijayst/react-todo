@@ -79,11 +79,13 @@ p{
        list-style-type: none;
        color: black;
    }
-
+.ite{
+    background-color:#69EBD0;
+    margin-top: 9px;
+}
 .li{
     background-color: #bab7b7;
     right: 50px;
-   
 }
 
 .btn2{

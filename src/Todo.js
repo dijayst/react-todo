@@ -95,8 +95,8 @@ const [searc, setsearc] = useState("")
 
 const handledelete=(e)=>{
 setdele.splice(e,1);
-setdele(todo.splice(e,1))
-settodo(todo.splice(index,1))
+//setdele(todo.splice(e,1))
+//settodo(todo.splice(index,1))
   
     setdele(todo.pop())
     console.log(dele)
@@ -139,12 +139,13 @@ settodo(todo.splice(index,1))
     ?val:null)}).map((item)=>{
     return(
         <li key={item} className="li"  >
+            <div className="ite">
    <p>{item}</p>
    <BorderColor fontSize="small" onClick={handleselect}/>
       {item?
     <Delete fontSize="small" onClick={handledelete} /> 
     :null}
-     
+     </div>
       </li>
     
       
